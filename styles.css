@@ -1,0 +1,218 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #121212;
+  color: #eceff4;
+  --surface: rgba(20, 23, 28, 0.98);
+  --surface-strong: rgba(33, 37, 43, 0.98);
+  --primary: #72d0ff;
+  --accent: #7cdb7c;
+  --danger: #ff6b6b;
+  --border: rgba(255, 255, 255, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background: radial-gradient(circle at top, rgba(114, 208, 255, 0.14), transparent 25%),
+    linear-gradient(180deg, #0f1116 0%, #121212 100%);
+}
+
+.app-shell {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.app-header,
+.app-footer {
+  padding: 18px 22px;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background: rgba(18, 20, 28, 0.85);
+  margin-bottom: 18px;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.app-header h1 {
+  margin: 0 0 8px;
+  font-size: clamp(1.65rem, 2.5vw, 2.4rem);
+}
+
+.app-header p,
+.app-footer p,
+.hint {
+  margin: 0;
+  color: #b9c1d1;
+}
+
+.status {
+  padding: 10px 16px;
+  background: rgba(114, 208, 255, 0.1);
+  border: 1px solid rgba(114, 208, 255, 0.22);
+  border-radius: 14px;
+  min-width: 190px;
+  text-align: center;
+  font-weight: 600;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.card {
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  background: var(--surface);
+  padding: 20px;
+}
+
+.card h2 {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.video-wrapper {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #000;
+}
+
+video,
+canvas {
+  width: 100%;
+  display: block;
+  aspect-ratio: 4 / 3;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.button-row,
+.attendance-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  border: none;
+  color: #0f1116;
+  background: linear-gradient(135deg, #72d0ff, #7cdb7c);
+  padding: 14px 18px;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+  min-width: 140px;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 35px rgba(33, 37, 43, 0.15);
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+input[type="text"],
+input[type="file"] {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: #f8fbff;
+  margin-top: 8px;
+}
+
+label {
+  display: block;
+  margin-bottom: 14px;
+}
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 460px;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 14px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+thead {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+tbody tr:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.status.good {
+  background: rgba(124, 219, 124, 0.14);
+  border-color: rgba(124, 219, 124, 0.25);
+}
+
+.status.warn {
+  background: rgba(255, 171, 73, 0.14);
+  border-color: rgba(255, 171, 73, 0.25);
+}
+
+.status.error {
+  background: rgba(255, 107, 107, 0.16);
+  border-color: rgba(255, 107, 107, 0.28);
+}
+
+@media (max-width: 900px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .app-shell {
+    padding: 16px;
+  }
+
+  button {
+    width: 100%;
+    min-width: 0;
+  }
+}

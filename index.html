@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Face Attendance Manager</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div>
+        <h1>Face Attendance Manager</h1>
+        <p>Web & mobile-friendly attendance system using face recognition.</p>
+      </div>
+      <div class="status" id="status">Loading face models...</div>
+    </header>
+
+    <main>
+      <section class="card controls-card">
+        <h2>Camera & Recognition</h2>
+        <div class="video-wrapper">
+          <video id="video" autoplay muted playsinline></video>
+          <canvas id="overlay"></canvas>
+        </div>
+        <div class="button-row">
+          <button id="startCameraBtn">Start Camera</button>
+          <button id="stopCameraBtn" disabled>Stop Camera</button>
+          <button id="recognizeBtn" disabled>Start Recognition</button>
+        </div>
+      </section>
+
+      <section class="card enrollment-card">
+        <h2>Enroll New Face</h2>
+        <form id="enrollForm">
+          <label>
+            Person Name
+            <input id="personName" type="text" placeholder="Type your name" required />
+          </label>
+          <label>
+            Profile Photo
+            <input id="faceImage" type="file" accept="image/*" required />
+          </label>
+          <button type="submit">Enroll Face</button>
+        </form>
+        <p class="hint">Use a clear frontal photo. Enrolled faces are stored in your browser.</p>
+      </section>
+
+      <section class="card attendance-card">
+        <h2>Attendance Log</h2>
+        <div class="attendance-actions">
+          <button id="exportCsvBtn">Export CSV</button>
+          <button id="clearLogBtn">Clear Log</button>
+        </div>
+        <div class="table-scroll">
+          <table id="attendanceTable">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Time</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <p>Tip: Enroll each user once, then run recognition to mark attendance automatically.</p>
+    </footer>
+  </div>
+</body>
+</html>
