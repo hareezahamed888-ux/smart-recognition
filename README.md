@@ -1,20 +1,31 @@
-# Face Attendance Manager
+# Face Attendance Manager (Smart Recognition)
 
 A browser-based face recognition attendance system that works as a responsive website and app-style interface.
 
+**Live Demo:** [https://smart-recognition.vercel.app](https://smart-recognition.vercel.app)
+
 ## Features
 
-- Camera-based face recognition using `face-api.js`
+- Camera-based face recognition using **face-api.js**
 - Enroll face profiles with a name and photo
 - Automatic attendance logging
-- CSV export and in-browser persistence
+- CSV export and in-browser persistence (`localStorage`)
 - Mobile-friendly layout for app-style use
+
+## Tech Stack
+
+- HTML / CSS / JavaScript
+- [face-api.js](https://github.com/justadudewhohacks/face-api.js) (TensorFlow.js models)
+- Deployed on Vercel
 
 ## Usage
 
-1. Open `index.html` in Chrome, Edge, or any browser with camera access.
+1. Open the [live site](https://smart-recognition.vercel.app) or run locally:
+   ```bash
+   npx serve .
+   ```
 2. Click **Start Camera** and allow camera permission.
-3. Enroll one or more users with a name and a clear photo.
+3. Enroll one or more users with a name and a clear frontal photo.
 4. Click **Start Recognition** and show enrolled faces to the camera.
 5. Export attendance records or clear the log as needed.
 
@@ -22,4 +33,8 @@ A browser-based face recognition attendance system that works as a responsive we
 
 - Face profiles and attendance logs are stored in `localStorage`.
 - Recognition works best with clear frontal photos and good lighting.
-- This example runs entirely in the browser and does not require a backend server.
+- Runs entirely in the browser — no backend server required.
+
+---
+
+Built by [Hareez Ahamed Z](https://github.com/hareezahamed888-ux)
